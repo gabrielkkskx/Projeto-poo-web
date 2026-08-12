@@ -14,3 +14,4 @@ php artisan db:seed --class=CategorySeeder
 git add .
 git commit -m "Atividade --Categories-- POO Web"
 exit
+exit
