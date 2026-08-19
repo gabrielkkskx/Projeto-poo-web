@@ -19,3 +19,6 @@ ls -l
 php index.php
 php index.php
 exit
+ls =l
+ls -l
+exit
