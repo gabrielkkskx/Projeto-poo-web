@@ -15,3 +15,7 @@ git add .
 git commit -m "Atividade --Categories-- POO Web"
 exit
 exit
+ls -l
+php index.php
+php index.php
+exit
