@@ -22,3 +22,10 @@ exit
 ls =l
 ls -l
 exit
+php artisan migrate:fresh --seed
+php artisan test
+docker exec -it poo_web_php php artisan migrate:fresh --seed
+php artisan migrate:fresh --seed
+php artisan migrate:fresh --seed
+php artisan text
+exit
