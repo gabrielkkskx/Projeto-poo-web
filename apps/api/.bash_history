@@ -37,3 +37,6 @@ php artisan install:api
 php artisan make:controller CategoryController --api --pest
 git add .
 exit
+php artisan route:list
+php artisan route:list
+exit

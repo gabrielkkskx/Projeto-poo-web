@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Category;
 
 use Illuminate\Http\Request;
 
@@ -50,7 +51,21 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $category = Category::find($id);
+
+        if (!$category){
+            //404 Not found
+            return response()->json([
+                'message' => 'Categoria não encontrada',
+            ], 404);
+        }
+
+        $category->name = $request->name ?? $category->name;
+        $category->description = $request->description ?? $category->description;
+
+        $category->save();
+
+        return $category;
     }
 
     /**
@@ -58,6 +73,29 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $category = Category::find($id);
+
+        if (!$category){
+            //404 Not found
+            return response()->json([
+                'message' => 'Categoria não encontrada',
+            ], 404);
+        }
+
+        $hasProduct = \App\Models\Product::where('category_id', $category->id)->exists();
+
+        if ($hasProduct){
+            //422 Unprocessable Entity
+            return response()->json([
+                'message' => 'Categoria com produtos relacionados',
+            ], 404);
+        }
+
+        $category->delete();
+
+        //204 No content
+        return response()->json([
+            'message' => 'Categoria excluida',
+        ], 204);
     }
 }
