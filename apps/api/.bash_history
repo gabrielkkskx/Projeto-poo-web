@@ -29,3 +29,11 @@ php artisan migrate:fresh --seed
 php artisan migrate:fresh --seed
 php artisan text
 exit
+php artisan test
+php artisan db:seed
+php artisan test
+exit
+php artisan install:api
+php artisan make:controller CategoryController --api --pest
+git add .
+exit
