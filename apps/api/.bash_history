@@ -40,3 +40,10 @@ exit
 php artisan route:list
 php artisan route:list
 exit
+php artisan route:list
+exit
+exit
+exit
+php artisan route:list
+php artisan route:list
+exit

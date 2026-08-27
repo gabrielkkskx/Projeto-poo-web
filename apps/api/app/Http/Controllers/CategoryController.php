@@ -32,33 +32,16 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Category $category) //Novo formato de injeção de dependência, o Laravel vai buscar o $category pelo id passado na rota
     {
-        $category = Category::find($id);
-
-        if (!$category){
-            //404: not found
-            return response()->json([
-                'message' => 'Categoria não Encontrada',
-            ], 404);
-        }
-
         return $category;
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Category $category, Request $request) //Novo formato de injeção de dependência, o Laravel vai buscar o $category pelo id passado na rota
     {
-        $category = Category::find($id);
-
-        if (!$category){
-            //404 Not found
-            return response()->json([
-                'message' => 'Categoria não encontrada',
-            ], 404);
-        }
 
         $category->name = $request->name ?? $category->name;
         $category->description = $request->description ?? $category->description;
@@ -71,16 +54,8 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Category $category)
     {
-        $category = Category::find($id);
-
-        if (!$category){
-            //404 Not found
-            return response()->json([
-                'message' => 'Categoria não encontrada',
-            ], 404);
-        }
 
         $hasProduct = \App\Models\Product::where('category_id', $category->id)->exists();
 
