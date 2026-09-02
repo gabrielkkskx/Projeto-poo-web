@@ -49,3 +49,4 @@ php artisan route:list
 exit
 php artisan make:request CategoryUpdateRequest
 exit
+exit

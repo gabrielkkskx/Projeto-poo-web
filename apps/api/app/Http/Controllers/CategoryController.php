@@ -43,11 +43,9 @@ class CategoryController extends Controller
      */
     public function update(CategoryUpdateRequest $request, Category $category) //Novo formato de injeção de dependência, o Laravel vai buscar o $category pelo id passado na rota
     {
+        $data = $request -> validated(); // Coleta os dados validados do request, que já passaram pelas regras de validação definidas no CategoryUpdateRequest
 
-        $category->name = $request->name ?? $category->name;
-        $category->description = $request->description ?? $category->description;
-
-        $category->save();
+        $category -> update($data); // Atualiza a instância do modelo Category com os dados validados e salva as alterações no banco de dados
 
         return $category;
     }
