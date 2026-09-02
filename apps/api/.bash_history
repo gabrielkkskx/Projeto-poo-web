@@ -47,3 +47,5 @@ exit
 php artisan route:list
 php artisan route:list
 exit
+php artisan make:request CategoryUpdateRequest
+exit

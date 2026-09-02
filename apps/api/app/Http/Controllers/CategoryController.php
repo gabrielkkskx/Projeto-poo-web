@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CategoryStoreRequest;
+use App\Http\Requests\CategoryUpdateRequest;
 
 class CategoryController extends Controller
 {
@@ -18,15 +20,14 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CategoryStoreRequest $request)
     {
-        $category = new Category();
-        $category->name = $request->name;
-        $category->description = $request->description;
 
-        $category->save();
+        $data = $request -> validated(); // Coleta os dados validados do request, que já passaram pelas regras de validação definidas no CategoryStoreRequest
 
-        return $category;
+        $category = Category::create($data); // Cria uma nova instância do modelo Category com os dados validados e salva no banco de dados
+
+        return $category; // Retorna a instância da categoria recém-criada como resposta da requisição
     }
 
     /**
@@ -40,7 +41,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Category $category, Request $request) //Novo formato de injeção de dependência, o Laravel vai buscar o $category pelo id passado na rota
+    public function update(CategoryUpdateRequest $request, Category $category) //Novo formato de injeção de dependência, o Laravel vai buscar o $category pelo id passado na rota
     {
 
         $category->name = $request->name ?? $category->name;
