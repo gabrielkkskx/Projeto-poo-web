@@ -61,3 +61,5 @@ php artisan make:controller ProductController --api
 php artisan make:controller CustomerController --api
 php artisan make:controller OrderController --api
 exit
+php artisan route:list --path=api
+exit
