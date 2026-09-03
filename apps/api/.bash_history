@@ -50,3 +50,14 @@ exit
 php artisan make:request CategoryUpdateRequest
 exit
 exit
+php artisan make:model Order
+php artisan make:request ProductStoreRequest
+php artisan make:request ProductUpdateRequest
+php artisan make:request CustomerStoreRequest
+php artisan make:request CustomerUpdateRequest
+php artisan make:request OrderStoreRequest
+php artisan make:request OrderUpdateRequest
+php artisan make:controller ProductController --api
+php artisan make:controller CustomerController --api
+php artisan make:controller OrderController --api
+exit
