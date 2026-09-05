@@ -23,10 +23,10 @@ class OrderUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'customer_id' => 'sometimes|required|exists:customers,id',
-            'products' => 'sometimes|required|array',
-            'products.*.product_id' => 'required_with:products|exists:products,id',
-            'products.*.quantity' => 'required_with:products|integer|min:1',
+            'customer_id' => 'required|exists:customers,id',
+            'total'       => 'required|numeric|min:0',
+            'status'      => 'required|string',
+            'paid_at'     => 'nullable|date',
         ];
     }
 }

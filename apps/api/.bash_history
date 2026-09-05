@@ -63,3 +63,7 @@ php artisan make:controller OrderController --api
 exit
 php artisan route:list --path=api
 exit
+php artisan make:migration CreateOrdersTable
+php artisan migrate
+php artisan migrate
+exit

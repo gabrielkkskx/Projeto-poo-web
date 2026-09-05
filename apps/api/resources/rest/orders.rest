@@ -1,0 +1,35 @@
+@baseUri = http://localhost:8182/api
+
+### Index
+GET {{baseUri}}/orders HTTP/1.1
+content-type: application/json
+
+### Store
+POST {{baseUri}}/orders HTTP/1.1
+content-type: application/json
+
+{
+    "customer_id": 1,
+    "total": 150.30,
+    "status": "pendente",
+    "paid_at": null
+}
+
+###Show
+GET {{baseUri}}/orders/1 HTTP/1.1
+content-type: application/json
+
+###Update
+PUT {{baseUri}}/orders/1 HTTP/1.1
+content-type: application/json
+
+{
+    "customer_id": 1,
+    "total": 150.30,
+    "status": "pago",
+    "paid_at": "2026-09-05 01:00:00"
+}
+
+###Delete
+DELETE {{baseUri}}/orders/1 HTTP/1.1
+content-type: application/json

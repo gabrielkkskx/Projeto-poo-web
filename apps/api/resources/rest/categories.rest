@@ -9,8 +9,7 @@ POST {{baseUri}}/categories HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Categoria nova",
-    "description": "Categoria criada via API/REST"
+    "customer_id"
 }
 
 ###Show

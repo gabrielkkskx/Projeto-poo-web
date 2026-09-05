@@ -24,9 +24,9 @@ class OrderStoreRequest extends FormRequest
     {
         return [
             'customer_id' => 'required|exists:customers,id',
-            'products' => 'required|array',
-            'products.*.product_id' => 'required|exists:products,id',
-            'products.*.quantity' => 'required|integer|min:1',
+            'total'       => 'required|numeric|min:0',
+            'status'      => 'required|string',
+            'paid_at'     => 'nullable|date',
         ];
     }
 }
