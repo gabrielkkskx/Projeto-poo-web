@@ -1,0 +1,46 @@
+@baseUri = http://localhost:8182/api
+
+### Index
+GET {{baseUri}}/reviews HTTP/1.1
+content-type: application/json; charset=utf-8
+
+### Store (Criação Válida)
+POST {{baseUri}}/reviews HTTP/1.1
+content-type: application/json; charset=utf-8
+
+{
+    "product_id": 1,
+    "customer_id": 1,
+    "rating": 5,
+    "comment": "Excelente produto, superou as expectativas!"
+}
+
+### Store (Criação Inválida - Teste de Validação)
+POST {{baseUri}}/reviews HTTP/1.1
+content-type: application/json; charset=utf-8
+
+{
+    "product_id": 1,
+    "customer_id": 1,
+    "rating": 10,
+    "comment": "Nota maior que 5 para testar o erro 422"
+}
+
+### Show
+GET {{baseUri}}/reviews/23 HTTP/1.1
+content-type: application/json; charset=utf-8
+
+### Update
+PUT {{baseUri}}/reviews/23 HTTP/1.1
+content-type: application/json; charset=utf-8
+
+{
+    "product_id": 1,
+    "customer_id": 1,
+    "rating": 4,
+    "comment": "Comentário atualizado após alguns dias de uso."
+}
+
+### Delete
+DELETE {{baseUri}}/reviews/23 HTTP/1.1
+content-type: application/json; charset=utf-8

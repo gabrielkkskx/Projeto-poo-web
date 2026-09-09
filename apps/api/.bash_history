@@ -67,3 +67,5 @@ php artisan make:migration CreateOrdersTable
 php artisan migrate
 php artisan migrate
 exit
+php artisan db:seed
+exit

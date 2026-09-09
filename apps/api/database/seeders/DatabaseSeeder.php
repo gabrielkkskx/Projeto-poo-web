@@ -2,26 +2,25 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Customer;
+use App\Models\Product;
+use App\Models\Review;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class ReviewSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        $this->call([
-            CustomerSeeder::class,
-        ]);
+        $product = Product::first();
+        $customer = Customer::first();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        if ($product && $customer) {
+            Review::factory()->create([
+                'product_id' => $product->id,
+                'customer_id' => $customer->id,
+                'rating' => 5,
+                'comment' => 'Produto excelente!',
+            ]);
+        }
     }
 }
