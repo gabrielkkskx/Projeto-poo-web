@@ -76,3 +76,8 @@ exit
 exit
 exit
 exit
+composer require dedoc/scramble
+php artisan vendor:publish --provider="Dedoc\Scramble\ScrambleServiceProvider" --tag="scramble-config"
+clear
+php artisan config:clear
+exit
