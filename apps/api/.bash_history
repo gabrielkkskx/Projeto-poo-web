@@ -69,3 +69,9 @@ php artisan migrate
 exit
 php artisan db:seed
 exit
+php artisan make:seed UserSeeder
+php artisan db:seed UserSeeder
+docker compose up -d
+exit
+exit
+exit
