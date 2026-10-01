@@ -2,7 +2,7 @@
     "rest-client.environmentVariables": {
         "$shared": {
             "baseUri": "http://localhost:8182/api",
-            "accessToken": "8|sh0XWtymYAnHXD24J8iuERXWAidKYFgBOa3FYHe88c1e0eef"
+            "accessToken": "2|uNmdsj59xgk4ihFH1MR3IDWBx26SveJ65OBtBWiF228958b5"
         },
     }
 }

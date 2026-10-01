@@ -75,3 +75,4 @@ docker compose up -d
 exit
 exit
 exit
+exit
