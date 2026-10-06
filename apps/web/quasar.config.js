@@ -11,7 +11,7 @@ export default defineConfig((ctx) => {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-vite/boot-files
-    boot: ['i18n'],
+    boot: ['i18n', 'axios'],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#css
     css: ['app.scss'],
@@ -54,8 +54,7 @@ export default defineConfig((ctx) => {
       // extendViteConf (viteConf) {},
       // viteVuePluginOptions: {},
 
-
-    vitePlugins: [
+      vitePlugins: [
         [
           '@intlify/unplugin-vue-i18n/vite',
           {
@@ -87,14 +86,18 @@ export default defineConfig((ctx) => {
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#devserver
     devServer: {
-      allowedHosts: 'all',
       // https: true,
       open: false, // opens browser window automatically
     },
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#framework
     framework: {
-      config: {},
+      config: {
+        notify: {
+          position: 'top',
+          type: 'positive',
+        }
+      },
 
       // iconSet: 'material-icons', // Quasar icon set
       // lang: 'en-US', // Quasar language pack
@@ -107,7 +110,10 @@ export default defineConfig((ctx) => {
       // directives: [],
 
       // Quasar plugins
-      plugins: [],
+      plugins: [
+        'Dialog',
+        'Notify',
+      ],
     },
 
     // animations: 'all', // --- includes all animations

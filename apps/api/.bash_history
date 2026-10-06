@@ -81,3 +81,5 @@ php artisan vendor:publish --provider="Dedoc\Scramble\ScrambleServiceProvider" -
 clear
 php artisan config:clear
 exit
+yarn add axios
+exit
