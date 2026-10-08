@@ -17,8 +17,8 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->double('price');
             $table->integer('stock');
-            $table->integer('position');
-            $table->boolean('enabled');
+            $table->integer('position')->nullable();
+            $table->boolean('enabled')->default(true);
             $table->timestamps();
         });
     }

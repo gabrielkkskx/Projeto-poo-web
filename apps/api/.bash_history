@@ -83,3 +83,17 @@ php artisan config:clear
 exit
 yarn add axios
 exit
+php artisan migrate:fresh --seed
+composer dump-autoload
+php artisan db:seed
+exit
+php artisan db:seed
+composer dump-autoload
+php artisan db:seed
+composer dump-autoload
+php artisan db:seed
+php artisan db:seed
+php artisan tinker
+exit
+php artisan migrate:fresh --seed
+exit
