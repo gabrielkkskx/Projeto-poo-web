@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::all(); // Retorna todos os produtos cadastrados no banco de dados. Em um cenário real, você pode implementar paginação, filtros e ordenação para melhorar a experiência do usuário.
+        return Product::paginate(10); // Retorna a estrutura com data, current_page, last_page, total, etc.
     }
 
     /**

@@ -1,1 +1,3 @@
 \App\Models\User::create(['name' => 'Teste', 'email' => 'test@example.com', 'password' => bcrypt('password')]);
+$user = \App\Models\User::where('email', 'test@example.com')->first();
+\App\Models\User::create(['name' => 'Teste', 'email' => 'test@example.com', 'password' => bcrypt('password')]);

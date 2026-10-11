@@ -97,3 +97,5 @@ php artisan tinker
 exit
 php artisan migrate:fresh --seed
 exit
+php artisan tinker
+exit

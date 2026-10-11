@@ -3,7 +3,7 @@
     <q-list separator>
       <q-item class="row">
         <q-item-section avatar>
-          <q-avatar icon="product" />
+          <q-avatar icon="inventory_2" />
         </q-item-section>
         <q-item-section>
           <q-input
@@ -34,6 +34,9 @@
           <q-item-label caption>
             {{ product.description }}
           </q-item-label>
+          <q-item-label caption class="text-weight-medium text-grey-8 q-mt-xs">
+            Preço: R$ {{ Number(product.price).toFixed(2) }} | Estoque: {{ product.stock }} un.
+          </q-item-label>
         </q-item-section>
         <q-item-section side>
           <q-btn-group rounded flat>
@@ -52,7 +55,7 @@
           </q-btn-group>
         </q-item-section>
       </q-item>
-      <q-item>
+      <q-item v-if="paging.last_page > 1">
         <q-item-section class="flex flex-center">
           <q-pagination
             v-model="paging.current_page"
@@ -74,6 +77,8 @@ const search = ref('')
 const paging = ref({
   current_page: 1,
   last_page: 1,
+  data: [],
+  total: 0,
 })
 
 const fetchProducts = () => {
@@ -86,11 +91,11 @@ const fetchProducts = () => {
 
 const confirmToDelete = (_product) => {
   Dialog.create({
-    message: 'Confirma exclusão da produto?',
+    message: 'Confirma exclusão do produto?',
     caption: 'Esta ação não pode ser desfeita',
   }).onOk(() => {
     deleteProduct(_product.id).then(() => {
-      Notify.create('Produto excluída!')
+      Notify.create('Produto excluído!')
       fetchProducts()
     }).catch((e) => {
       console.log(e?.response)
